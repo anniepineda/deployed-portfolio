@@ -13,11 +13,17 @@ app.get('/webpage', function(request,response){
 
 //viisting the route caues teh callback function to be invoked
 
-app.get('ginger kisses', function(request, response){
+app.get('/gingerkisses', function(request, response){
     console.log('someone wants ginger kisses');
-    response.send('Here is a kiss <3');
+    response.send({
+        kiss:'Here is a kiss <3',
+        from: 'ginger'
+    });
 });
 
-app.listen(3000, function(){
-    console.log('Hello Hello');
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function() {
+    console.log('Hello Hello, you started a server');
 });
